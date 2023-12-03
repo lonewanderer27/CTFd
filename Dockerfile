@@ -24,6 +24,11 @@ RUN pip install --no-cache-dir -r requirements.txt \
         fi; \
     done;
 
+# Install CTFd theme
+WORKDIR /opt/CTFd/CTFd/themes
+
+# Run git clone command to clone the theme repository
+RUN git clone https://github.com/hmrserver/CTFd-theme-pixo.git
 
 FROM python:3.9-slim-buster as release
 WORKDIR /opt/CTFd
